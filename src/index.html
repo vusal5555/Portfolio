@@ -181,8 +181,9 @@
                     and Express. To store the data, utilized MongoDb.
                     implemented payment, cart, authentication and authorization
                     functionalities with many different libraries, such as Redux
-                    toolkit and Jsonwebtoken. on top of that I also used redux
-                    to fetch data from the api instead of using axios.
+                    toolkit and Jsonwebtoken (for security). on top of that I
+                    also used redux to fetch data from the api instead of using
+                    axios.
                   </p>
                 </div>
                 <a
@@ -294,14 +295,33 @@
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
+          <!-- <p class="contact-wrapper__text">Contact me!</p>
           <a
             rel="noreferrer"
             target="_blank"
             class="cta-btn cta-btn--resume"
-            href="mailto:example@email.com"
-            >Call to Action</a
-          >
+            href="mailto:novruzovvusal364@gmail.com"
+            >Send an email</a
+          > -->
+          <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required />
+
+            <input
+              type="email"
+              name="Email"
+              placeholder="Your Email"
+              required
+            />
+
+            <textarea
+              name="Message"
+              rows="6"
+              placeholder="Your Message"
+            ></textarea>
+
+            <button type="submit" class="form-btn">Submit</button>
+          </form>
+          <span id="msg"></span>
         </div>
       </div>
     </section>
@@ -345,5 +365,25 @@
     <!-- /END Footer Section -->
 
     <script defer type="module" src="index.js"></script>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbyuNHmCKIw9WidOAFGuh8FMTSfARfLGD2gR67nKn0HcymL5Xwdrc0rj-kkVg_oz7BrrIg/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Message Sent successfully";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>

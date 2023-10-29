@@ -37,3 +37,38 @@
     }
   }
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.form-btn {
+  display: block;
+  width: 200px;
+  outline: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: transparent;
+  border: 3px solid white;
+  color: white;
+  font-size: 15px;
+}
+
+#msg {
+  color: white;
+  font-size: 15px;
+  display: inline-block;
+  margin-top: 15px;
+}
