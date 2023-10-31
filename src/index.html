@@ -235,7 +235,7 @@
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
                 <h3 class="project-wrapper__text-title">
-                  AI Chatbot coming soon...
+                  Blog Website coming soon...
                 </h3>
                 <div>
                   <p class="mb-4">
@@ -265,7 +265,7 @@
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image load-hidden">
+              <div class="project-wrapper__image load-hidden shadow-lg">
                 <a rel="noreferrer" href="#!" target="_blank">
                   <div
                     data-tilt
@@ -277,7 +277,7 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/blog.png"
                     />
                   </div>
                 </a>
@@ -378,11 +378,11 @@
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
+            form.reset();
             msg.innerHTML = "Message Sent successfully";
             setTimeout(function () {
               msg.innerHTML = "";
             }, 5000);
-            form.reset();
           })
           .catch((error) => console.error("Error!", error.message));
       });
